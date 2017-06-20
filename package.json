@@ -12,7 +12,10 @@
     "homebridge": ">=0.2.0"
   },
   "author": "Richard Mansfield",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richmansfield/homebridge-tuneblade.git"
+  },
   "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
