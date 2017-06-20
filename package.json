@@ -1,9 +1,9 @@
 {
   "name": "homebridge-tuneblade",
   "version": "0.0.1",
-  "description": "Control tuneblade speakers", 
+  "description": "Control tuneblade speakers",
   "main": "tuneblade.js",
-  "license": "",
+  "license": "ISC",
   "keywords": [
     "homebridge-plugin"
   ],
@@ -11,11 +11,10 @@
     "node": ">=0.12.0",
     "homebridge": ">=0.2.0"
   },
-  "author": {
-    "name": "Richard Mansfield"
-  },
-  "repository": {
-  },
-  "dependencies": {
+  "author": "Richard Mansfield",
+  "repository": {},
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
