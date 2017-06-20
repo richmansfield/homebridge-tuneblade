@@ -11,7 +11,7 @@ Once iOS 11 with speaker support is released, I will swap this over.
 ## Setup
 
 1. Ensure TuneBlade remote port is set to a fixed port. Go to TuneBlade settings, 'Remote Control' then select manual port and enter a free port
-2. Visit http://<yourtunebladeserver>:<port>/devices in a web browser, this will list configured device ID's that you will need for the configuration 
+2. Visit http://\<yourtunebladeserver\>:\<port\>/devices in a web browser, this will list configured device ID's that you will need for the configuration 
 3. Install this plugin into your homebridge setup
 4. Update your config file to include your speakers (see examples below)
 
