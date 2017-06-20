@@ -2,17 +2,22 @@
 
 ## Intro
 
-This plugin enables enabling, disabling and volume control of AirPlay speakers as part of a multi-room setup powered by [TuneBlade](http://www.tuneblade.com/).
+This homebridge plugin enables enabling, disabling and volume control of AirPlay speakers as part of a multi-room setup powered by [TuneBlade](http://www.tuneblade.com/).
 
 Since iOS 10 does not support speakers, they are emulating lightbulbs in the Home app with brightness level representing volume. 
 
 Once iOS 11 with speaker support is released, I will swap this over.
 
+## Pre-requisites
+
+1. A working [Homebridge](https://github.com/nfarina/homebridge) installation on your local network 
+2. A working [TuneBlade](http://www.tuneblade.com/) installaton on your local network 
+
 ## Setup
 
-1. Ensure TuneBlade remote port is set to a fixed port. Go to TuneBlade settings, 'Remote Control' then select manual port and enter a free port
-2. Visit http://\<yourtunebladeserver\>:\<port\>/devices in a web browser, this will list configured device ID's that you will need for the configuration 
-3. Install this plugin into your homebridge setup
+1. Ensure TuneBlade remote port is set to a fixed port. Go to TuneBlade settings, 'Remote Control' then select 'Manual' port and enter a free port
+2. Visit http://\<yourtunebladeserver\>:\<port\>/devices in a web browser, this will list configured devices that you will need the ID's for the configuration of this plugin
+3. Install this plugin into your homebridge setup 
 4. Update your config file to include your speakers (see examples below)
 
 ## Config 
