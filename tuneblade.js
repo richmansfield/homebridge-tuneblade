@@ -31,7 +31,6 @@ function TuneBladePlugin(log, config) {
 		
 		// Lightbulb has On & Brightness
 
-//	this.tunebladeService = new Service.Switch(this.name);
 	this.tunebladeService = new Service.Lightbulb(this.name);
 	this.tunebladeService.getCharacteristic(Characteristic.On)
 		.on('set', this.setStatus.bind(this));   
