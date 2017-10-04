@@ -1,12 +1,12 @@
 # homebridge-tuneblade
 
+There is new API behaviour in the latest version of TuneBlade - new version of this plugin will be released very soon
+
 ## Intro
 
 This homebridge plugin enables enabling, disabling and volume control of AirPlay speakers as part of a multi-room setup powered by [TuneBlade](http://www.tuneblade.com/).
 
-Since iOS 10 does not support speakers, they are emulating lightbulbs in the Home app with brightness level representing volume. 
-
-Once iOS 11 with speaker support is released, I will swap this over.
+Since both the iOS 10 & iOS 11 home application does not support 'speaker' accessories, this plugin shows each speaker as a lightbulb in the Home app with brightness level representing volume. 
 
 ## Pre-requisites
 
