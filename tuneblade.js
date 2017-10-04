@@ -16,7 +16,8 @@ function TuneBladePlugin(log, config) {
 	this.name      = config["name"];	
 	this.api       = config["api"];
 	this.speakerid = config["speakerid"];	
-	this.polltime  = Number(config["pollTime"]) * 1000;
+	this.randtime  = Math.floor(Math.random() * 5000);
+	this.polltime  = (Number(config["pollTime"]) * 1000) + this.randtime;
 	this.connected = false;
 	this.volume    = 0;
 	
@@ -26,20 +27,15 @@ function TuneBladePlugin(log, config) {
 	 .setCharacteristic(Characteristic.Model, "Speaker")
 	 .setCharacteristic(Characteristic.SerialNumber, "000000");
 
-		//NEED iOS11 - this.tunebladeService = new Service.Speaker(this.name);
-		// Characteristics for name, volume, mute
-		
-		// Lightbulb has On & Brightness
-
+	// Lightbulb has On & Brightness
 	this.tunebladeService = new Service.Lightbulb(this.name);
 	this.tunebladeService.getCharacteristic(Characteristic.On)
-		.on('set', this.setStatus.bind(this));   
-	
+		.on('set', this.setStatus.bind(this));   	
 	this.tunebladeService.getCharacteristic(Characteristic.Brightness)
-      .on('set', this.setBrightness.bind(this));
+        .on('set', this.setVolume.bind(this));
 	
     setInterval(this.queryState.bind(this), this.polltime);
-	this.queryState();
+    setTimeout(this.queryState.bind(this), this.randtime);
 }
 
 TuneBladePlugin.prototype.processState = function (newstate) {
@@ -86,15 +82,17 @@ TuneBladePlugin.prototype.queryState = function () {
 	}.bind(this));
 }
 
-TuneBladePlugin.prototype.setBrightness = function (level, callback) {
+TuneBladePlugin.prototype.setVolume = function (level, callback) {
 
 	this.log("Setting volume to ", level);
 	
 	request({ 
 		url: this.api + "/devices/" + this.speakerid, 
 		method: 'PUT', 
-		json: {"Volume": level}}, 
-	callback)	  			
+		json: {"Volume": level}
+	})	  			
+
+	callback();		
 }
 
 TuneBladePlugin.prototype.setStatus = function (status, callback) {
@@ -105,16 +103,17 @@ TuneBladePlugin.prototype.setStatus = function (status, callback) {
 		request({ 
 			url: this.api + "/devices/" + this.speakerid, 
 			method: 'PUT', 
-			json: {"Status": "Connect"}}, 
-		callback)
+			json: {"Status": "Connect"}
+		})
 	} else {
 		request({ 
 			url: this.api + "/devices/" + this.speakerid, 
 			method: 'PUT', 
-			json: {"Status": "Disconnect"}}, 
-		callback)
+			json: {"Status": "Disconnect"}
+		})
 	}	
-	  			
+	
+	callback();		
 	this.connected = status;
 }
 
