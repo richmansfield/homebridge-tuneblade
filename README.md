@@ -1,7 +1,5 @@
 # homebridge-tuneblade
 
-There is new API behaviour in the latest version of TuneBlade - new version of this plugin will be released very soon
-
 ## Intro
 
 This homebridge plugin enables enabling, disabling and volume control of AirPlay speakers as part of a multi-room setup powered by [TuneBlade](http://www.tuneblade.com/).
